@@ -21,7 +21,7 @@ fbsetbg -l # sets the last background set, very useful and recommended.
 # In the below commands the ampersand symbol (&) is required on all applications that do not terminate immediately.
 # Failure to provide them will cause Fluxbox not to start.
 
-/usr/bin/xterm -rv &
+/usr/bin/xterm -rv xterm -fn 12x18 -fa "Liberation Mono:size=16:antialias=false" &
 /usr/bin/firefox &
 
 
