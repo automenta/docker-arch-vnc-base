@@ -1,5 +1,52 @@
 # The black/white grid as background doesn't suit my taste.
-xsetroot -solid black &
+#xsetroot -solid black &
 # Ratpoison is compatible with xcompmgr! now you can have real transparency
 #fire up ratpoison!
-exec /usr/bin/ratpoison
+#exec /usr/bin/ratpoison
+#exec /usr/bin/firefox -foreground -start-debugger-server 6000
+#exec /usr/bin/fluxbox
+
+
+
+
+#!/bin/sh
+
+
+xrdb $HOME/.Xresources
+xsetroot -solid grey
+
+export XKL_XMODMAP_DISABLE=1
+
+fbsetbg -l # sets the last background set, very useful and recommended.
+# In the below commands the ampersand symbol (&) is required on all applications that do not terminate immediately.
+# Failure to provide them will cause Fluxbox not to start.
+
+/usr/bin/xterm -rv &
+/usr/bin/firefox &
+
+
+
+/usr/bin/startfluxbox
+
+
+#exec /usr/bin/chromium #--kiosk
+
+#unset SESSION_MANAGER
+#exec sh /etc/X11/xinit/xinitrc
+#[ -x /etc/vnc/xstartup ] && exec /etc/vnc/xstartup
+#[ -r $HOME/.Xresources ] && xrdb $HOME/.Xresources
+
+#xsetroot -solid grey &
+
+#vncconfig -iconic &
+
+#x-terminal-emulator -geometry 1280x1024+10+10 -ls -title "$VNCDESKTOP Desktop" &
+
+#exec /usr/bin/firefox #-foreground  # -height 768 -width 1024 -start-debugger-server 6000
+
+#unset SESSION_MANAGER
+#unset DBUS_SESSION_BUS_ADDRESS
+#startxfce4 &
+
+
+#/usr/bin/idesk &

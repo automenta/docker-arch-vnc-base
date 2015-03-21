@@ -2,7 +2,7 @@ FROM nicocoffo/archlinux-minimal
 
 ENV LANG en_US.utf8
 
-RUN pacman -Sy --noconfirm --needed expect tigervnc ratpoison ttf-droid
+RUN pacman -Sy --noconfirm --needed expect tigervnc firefox ttf-droid fluxbox xterm
 WORKDIR /root/
 ADD .ratpoisonrc /root/.ratpoisonrc
 ENV VNCPASSWD vncrocks
@@ -12,7 +12,12 @@ ENV VNCPASSWD vncrocks
 ADD xstartup /root/.vnc/xstartup
 ADD setpass.sh /root/setpass.sh
 
-CMD /root/setpass.sh; vncserver -fg 
+#https://www.realvnc.com/products/open/4.0/man/Xvnc.html
+#CMD /root/setpass.sh; vncserver -fg -deferUpdate=100 -log=*:stderr:1 -SecurityTypes=None -shmem
+
+CMD /root/setpass.sh; vncserver -fg -log=*:stderr:1 -SecurityTypes=None
+
 
 EXPOSE 5901
+
 
